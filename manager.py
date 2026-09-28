@@ -15,15 +15,15 @@ class StudentManager:
         new_student = Student(new_id, name, score)
         self.students.append(new_student)
 
-    def show_student(self):
+    def show_students(self):
         for student in self.students:
-            print(student.id , student.name , student.score)
+            print(f"ID: {student.id} ; NAME: {student.name} ; SCORE: {student.score}")
 
     def search_student(self,id):
         find = False
         for student in self.students:
             if student.id == id:
-                print(f"student is find \n {student.id} - {student.name} - {student.score} ")
+                print(f"student is find \n ID: {student.id} ; NAME: {student.name} ; SCORE: {student.score} ")
                 find = True 
                 break
         if not find:
@@ -38,14 +38,6 @@ class StudentManager:
                 break
         if not find:
             print("student is not exict for delete !!! ")
-
-    def exit (self,command):
-        if command == "exit":
-            return True
-        else:
-            print("invalid input")
-            return False
-
 
     def load_from_json(self):
         try:
@@ -65,6 +57,11 @@ class StudentManager:
 
         with open("students.json" , "w") as file:
             json.dump(data , file)
+
+
+
+
+
 
 
 
